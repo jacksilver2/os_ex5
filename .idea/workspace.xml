@@ -37,7 +37,7 @@
       <file leaf-file-name="PhysicalMemory.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PhysicalMemory.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
+            <state relative-caret-position="-1025">
               <caret line="13" column="46" lean-forward="true" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
@@ -49,10 +49,26 @@
       <file leaf-file-name="VirtualMemory.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="163" column="8" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
+            <state relative-caret-position="401">
+              <caret line="172" column="8" selection-start-line="172" selection-start-column="8" selection-end-line="172" selection-end-column="8" />
               <folding>
-                <marker date="1530103117674" expanded="false" signature="2318:2609" ph="..." />
+                <element signature="e#77#274#1" />
+                <element signature="e#277#718#0" />
+                <element signature="e#720#905#0" />
+                <element signature="e#907#988#0" />
+                <element signature="e#990#1152#0" />
+                <element signature="e#1154#1246#0" />
+                <element signature="e#1249#1379#0" />
+                <element signature="e#1381#1420#0" />
+                <element signature="e#1442#1487#0" />
+                <element signature="e#1534#1727#0" />
+                <element signature="e#1726#1757#0" />
+                <element signature="e#1828#2860#0" />
+                <element signature="e#1423#1711#0" />
+                <element signature="e#1808#1968#0" />
+                <element signature="e#1713#1752#0" />
+                <element signature="e#1726#1911#0" />
+                <element signature="e#1900#1965#0" />
               </folding>
             </state>
           </provider>
@@ -207,12 +223,12 @@
       <option name="presentableId" value="Default" />
       <updated>1529997257556</updated>
       <workItem from="1529997259164" duration="10920000" />
-      <workItem from="1530086581844" duration="11727000" />
+      <workItem from="1530086581844" duration="12923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22647000" />
+    <option name="totallyTimeSpent" value="23843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -224,7 +240,7 @@
       <window_info anchor="bottom" id="CMake" order="4" weight="0.32991803" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.3261317" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.3261317" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3281893" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -298,7 +314,23 @@
         <state relative-caret-position="290">
           <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
-            <marker date="1530103117674" expanded="false" signature="2318:2609" ph="..." />
+            <element signature="e#77#274#1" />
+            <element signature="e#277#718#0" />
+            <element signature="e#720#905#0" />
+            <element signature="e#907#988#0" />
+            <element signature="e#990#1152#0" />
+            <element signature="e#1154#1246#0" />
+            <element signature="e#1249#1379#0" />
+            <element signature="e#1381#1420#0" />
+            <element signature="e#1442#1487#0" />
+            <element signature="e#1534#1727#0" />
+            <element signature="e#1726#1757#0" />
+            <element signature="e#1828#2860#0" />
+            <element signature="e#1423#1711#0" />
+            <element signature="e#1808#1968#0" />
+            <element signature="e#1713#1752#0" />
+            <element signature="e#1726#1911#0" />
+            <element signature="e#1900#1965#0" />
           </folding>
         </state>
       </provider>
@@ -355,16 +387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PhysicalMemory.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="13" column="46" lean-forward="true" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/stdint.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -372,12 +394,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PhysicalMemory.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1025">
+          <caret line="13" column="46" lean-forward="true" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualMemory.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="163" column="8" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
+        <state relative-caret-position="401">
+          <caret line="172" column="8" selection-start-line="172" selection-start-column="8" selection-end-line="172" selection-end-column="8" />
           <folding>
-            <marker date="1530103117674" expanded="false" signature="2318:2609" ph="..." />
+            <element signature="e#77#274#1" />
+            <element signature="e#277#718#0" />
+            <element signature="e#720#905#0" />
+            <element signature="e#907#988#0" />
+            <element signature="e#990#1152#0" />
+            <element signature="e#1154#1246#0" />
+            <element signature="e#1249#1379#0" />
+            <element signature="e#1381#1420#0" />
+            <element signature="e#1442#1487#0" />
+            <element signature="e#1534#1727#0" />
+            <element signature="e#1726#1757#0" />
+            <element signature="e#1828#2860#0" />
+            <element signature="e#1423#1711#0" />
+            <element signature="e#1808#1968#0" />
+            <element signature="e#1713#1752#0" />
+            <element signature="e#1726#1911#0" />
+            <element signature="e#1900#1965#0" />
           </folding>
         </state>
       </provider>

@@ -14,7 +14,6 @@ struct dfsArg
 	word_t minDistParentFrmaeAdr; //used to pass along
 };
 
-
 ///
 /// \param n thenumber  to be converted to binary in string format
 /// \return above
@@ -91,7 +90,6 @@ uint64_t calcCyclicDist(uint64_t va1, uint64_t va2)
 	return value2;
 }
 
-
 uint64_t calcMyVirtAddr(uint64_t last, int entry)
 {
 	last <<= OFFSET_WIDTH;
@@ -153,6 +151,7 @@ int foo(int depth, uint64_t virtAddr, uint64_t curVa, word_t originalTable,
 	}
 	return 3;
 }
+
 //swaps?
 word_t bar(uint64_t virtAddr, word_t frameNum)
 {
@@ -170,6 +169,7 @@ word_t bar(uint64_t virtAddr, word_t frameNum)
 	}
 	if (fooResult == 2)
 	{
+		//means we found an empty table
 
 	}
 }
@@ -190,7 +190,6 @@ void getNextFrameAddr(uint64_t va, word_t *nextFrameAddr, int depth)
 	PMread((*nextFrameAddr) * PAGE_SIZE + entryOfTableInDepthN(va, depth), nextFrameAddr);
 }
 
-
 uint64_t translateAddr(uint64_t va)
 {
 	word_t nextFrameAddr = 0;
@@ -205,7 +204,6 @@ uint64_t translateAddr(uint64_t va)
 	}
 	return nextFrameAddr * PAGE_SIZE + offset(va);
 }
-
 
 dfsArg dfsSearch(dfsArg arg)
 {
