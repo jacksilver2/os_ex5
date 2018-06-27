@@ -58,7 +58,6 @@ uint64_t offset(uint64_t virtualAddress)
 	return nLSBbits(virtualAddress, OFFSET_WIDTH);
 }
 
-
 void clearTable(uint64_t frameIndex)
 {
 	for (uint64_t i = 0; i < PAGE_SIZE; ++i)
@@ -72,6 +71,108 @@ void VMinitialize()
 	clearTable(0);
 }
 
+uint64_t dist(uint64_t a, uint64_t b)
+{
+	if (a > b)
+	{
+		return a - b;
+	}
+	return b - a;
+}
+
+uint64_t calcCyclicDist(uint64_t va1, uint64_t va2)
+{
+	uint64_t value1 = dist(va1, va2);
+	uint64_t value2 = NUM_PAGES - value1;
+	if (value1 < value2)
+	{
+		return value1;
+	}
+	return value2;
+}
+
+
+uint64_t calcMyVirtAddr(uint64_t last, int entry)
+{
+	last <<= OFFSET_WIDTH;
+	return last + entry;
+}
+
+int foo(int depth, uint64_t virtAddr, uint64_t curVa, word_t originalTable,
+		word_t frameNum, word_t parentFrameNum, int entryIndexInParent,
+		word_t *resultFrameNum, word_t *resultParentFrameNum, int *resultEntryIndexInParent,
+		word_t *maxFrameNum, uint64_t *maxCyclicPageDist)
+{
+	// update max frame:
+	if (*maxFrameNum < frameNum)
+	{
+		*maxFrameNum = frameNum;
+	}
+	// update max cyclic distance if reached a data page TODO: make sure it's not TABLES_DEPTH-1
+	if (depth == TABLES_DEPTH)
+	{
+		uint64_t curCyclicDist = calcCyclicDist(virtAddr, curVa);
+		if (*maxCyclicPageDist < curCyclicDist)
+		{
+			*maxCyclicPageDist = curCyclicDist;
+			*resultFrameNum = frameNum;
+			*resultParentFrameNum = parentFrameNum;
+			*resultEntryIndexInParent = entryIndexInParent;
+		}
+		return 3;
+	}
+	bool isLeaf = true;
+
+	for (int i = 0; i < PAGE_SIZE; ++i)
+	{
+		word_t x;
+		PMread(static_cast<uint64_t>(frameNum * PAGE_SIZE + i), &x);
+		if (x != 0)
+		{
+			isLeaf = false;
+		}
+		int y = foo(depth + 1, virtAddr, calcMyVirtAddr(curVa, i), originalTable,
+					x, frameNum, i,
+					resultFrameNum, resultParentFrameNum, resultEntryIndexInParent,
+					maxFrameNum, maxCyclicPageDist);
+		if (y == 1)
+		{
+			PMwrite(static_cast<uint64_t>(frameNum * PAGE_SIZE + i), 0); //erased leaf son from self
+			return 2;
+		}
+		if (y == 2)
+		{
+			return 2;
+		}
+
+	}
+	if (isLeaf && frameNum != originalTable && depth != 0)
+	{
+		*resultFrameNum = frameNum;
+		return 1;
+	}
+	return 3;
+}
+//swaps?
+word_t bar(uint64_t virtAddr, word_t frameNum)
+{
+	word_t resultFrameNum = 0;
+	word_t resultParentFrameNum = 0;
+	int resultEntryIndexInParent = 0;
+	word_t maxFrameNum = 0;
+	uint64_t maxCyclicPageDist = 0;
+	int fooResult = foo(0, virtAddr, 0, frameNum, 0, 0, 0,
+						&resultFrameNum, &resultParentFrameNum, &resultEntryIndexInParent, &maxFrameNum,
+						&maxCyclicPageDist);
+	if (fooResult == 1)
+	{
+		std::cerr << "FOO RETURNED 1 on outer call" << std::endl;
+	}
+	if (fooResult == 2)
+	{
+
+	}
+}
 
 int VMread(uint64_t virtualAddress, word_t *value) // write will have the same logic
 {
@@ -83,6 +184,7 @@ int VMread(uint64_t virtualAddress, word_t *value) // write will have the same l
 	//}
 	return 1;
 }
+
 void getNextFrameAddr(uint64_t va, word_t *nextFrameAddr, int depth)
 {
 	PMread((*nextFrameAddr) * PAGE_SIZE + entryOfTableInDepthN(va, depth), nextFrameAddr);
@@ -97,8 +199,8 @@ uint64_t translateAddr(uint64_t va)
 		getNextFrameAddr(va, &nextFrameAddr, depth);
 		if (nextFrameAddr == 0)
 		{
-			//problem
 			//DFS
+			nextFrameAddr = bar(va,nextFrameAddr); //yes?
 		}
 	}
 	return nextFrameAddr * PAGE_SIZE + offset(va);
@@ -116,7 +218,6 @@ dfsArg dfsSearch(dfsArg arg)
 	{
 		//will this ever occur?
 	}
-
 }
 
 int VMwrite(uint64_t virtualAddress, word_t value)
