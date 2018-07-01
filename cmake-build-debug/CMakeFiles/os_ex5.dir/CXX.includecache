@@ -33,14 +33,18 @@ MemoryConstants.h
 /home/jacksilver/CLionProjects/os_ex5/SimpleTest.cpp
 VirtualMemory.h
 /home/jacksilver/CLionProjects/os_ex5/VirtualMemory.h
+PhysicalMemory.h
+/home/jacksilver/CLionProjects/os_ex5/PhysicalMemory.h
 cstdio
 -
 cassert
 -
-
-/home/jacksilver/CLionProjects/os_ex5/VirtualMemory.cpp
 iostream
 -
+map
+-
+
+/home/jacksilver/CLionProjects/os_ex5/VirtualMemory.cpp
 VirtualMemory.h
 /home/jacksilver/CLionProjects/os_ex5/VirtualMemory.h
 PhysicalMemory.h
@@ -49,8 +53,4 @@ PhysicalMemory.h
 /home/jacksilver/CLionProjects/os_ex5/VirtualMemory.h
 MemoryConstants.h
 /home/jacksilver/CLionProjects/os_ex5/MemoryConstants.h
-
-/home/jacksilver/CLionProjects/os_ex5/main.cpp
-iostream
--
 

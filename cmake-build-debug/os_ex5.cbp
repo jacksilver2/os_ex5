@@ -102,9 +102,6 @@
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex5/VirtualMemory.h">
 			<Option target="os_ex5"/>
 		</Unit>
-		<Unit filename="/home/jacksilver/CLionProjects/os_ex5/main.cpp">
-			<Option target="os_ex5"/>
-		</Unit>
 		<Unit filename="/home/jacksilver/CLionProjects/os_ex5/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
